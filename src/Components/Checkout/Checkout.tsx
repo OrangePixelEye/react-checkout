@@ -1,12 +1,12 @@
 import { EtapasLista } from '../../App';
 import './Checkout.css'
 
-interface PropCheckout {
+export interface PropCheckout{
     onChangeEtapa(ordem : EtapasLista) : void;
-    etapa : EtapasLista
+    current_etapa : EtapasLista;
 }
 
-export default function Checkout(prop : PropCheckout){
+export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
     let current_form = <h2>Tchau</h2>
 
     //todo: formulario baseado no progresso
