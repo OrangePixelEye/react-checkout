@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 
 import './App.css'
 import Etapas from './Components/Etapas/Etapas'
@@ -10,7 +9,8 @@ export enum EtapasLista{
   Login,
   Endereço,
   Entrega,
-  Pagamento
+  Pagamento,
+  Verificaçao
 }
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <Etapas></Etapas>
+      <Etapas/>
       <Checkout onChangeEtapa={etapaHandler} current_etapa={etapa}></Checkout>
     </div>
   )
