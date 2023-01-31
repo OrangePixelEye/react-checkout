@@ -43,9 +43,13 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
     }
     //todo: formulario baseado no progresso
     return(
-        <>
+            <>
+            
             <div>{current_form}</div>
-            <h1 className="text-3xl font-bold underline">Botões</h1>
-        </>
+            </>
+            
+            
+
+        
     )
 }
