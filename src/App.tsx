@@ -23,8 +23,8 @@ function App() {
 
   return (
     <div className="App">
-      <Etapas/>
-      <Checkout onChangeEtapa={etapaHandler} current_etapa={etapa}></Checkout>
+      <Etapas status={etapa}/>
+      <Checkout onChangeEtapa={etapaHandler} current_etapa={etapa}/>
     </div>
   )
 }
