@@ -36,7 +36,11 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
     }
 
     const enderecoHandler = (_endereco : string) => {
-        setEndereco(_endereco)
+        setCheckoutData((prevState) => {
+            return{...prevState, endereco : _endereco}
+            }
+        )
+        
         onChangeEtapa(EtapasLista.Verificaçao);
     }
 
@@ -47,27 +51,17 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
         case EtapasLista.Endereço:
             current_form = <Endereco onSubmit={enderecoHandler}/>
             break;
-            //https://react-hook-form.com/form-builder
-        case EtapasLista.Entrega:
-            break;    
+         
         case EtapasLista.Pagamento:
             break;
         case EtapasLista.Verificaçao:
-            current_form = <h1>{checkoutData.email}</h1>
+            current_form = <h1>{checkoutData.endereco}</h1>
             //<Verificar/>
             break;
         default:
             break;
     }
-    //todo: formulario baseado no progresso
     return(
-            <>
-            
-            <div>{current_form}</div>
-            </>
-            
-            
-
-        
+        <div>{current_form}</div>
     )
 }
