@@ -15,7 +15,7 @@ const Etapas = ({status} : EtapaProp ) => {
         li : 'flex items-center text-gray-500 dark:text-gray-400 space-x-2.5',
         span : "flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400"
     } 
-    //todo: barras de progresso
+    //todo: barras de progresso em componentes indiviuais 
     return (
         <div>
             <ol className="items-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0">

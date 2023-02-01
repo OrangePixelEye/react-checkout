@@ -21,9 +21,15 @@ function App() {
     if (etapa != ordem) setEtapa(ordem)
   }
 
+  //let arr = []
+  //  for(const e in EtapasLista){
+  //    arr.push(<h1>{e.toString()}</h1>) 
+  //  }
+  //<h1>{e}</h1>
   return (
     <div className="App">
       <Etapas status={etapa}/>
+      
       <Checkout onChangeEtapa={etapaHandler} current_etapa={etapa}/>
     </div>
   )
