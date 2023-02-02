@@ -19,6 +19,7 @@ export default function Entrega(){
                 </tr>
             </tbody>
         </table>  
+        
         </div>
         
     )
