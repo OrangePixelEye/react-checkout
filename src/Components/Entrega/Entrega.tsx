@@ -29,6 +29,7 @@ export default function Entrega({onEntregaSubmit} : any){
                 </tr>
             </tbody>
         </table>  
+        
         </div>
         
     )

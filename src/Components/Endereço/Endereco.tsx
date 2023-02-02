@@ -2,6 +2,7 @@ import { useState } from 'react';
 import cep, { CEP } from 'cep-promise'
 import ReactInputMask from 'react-input-mask';
 import Entrega from '../Entrega/Entrega';
+import ButtonSubmit from '../ButtonSubmit/ButtonSubmit';
 
 interface MyFormValues {
   CEP: string;
@@ -61,19 +62,19 @@ export default function Endereco({onSubmit, onEntregaSubmit} : IEndereco){
           focus:border-blue-600 focus:outline-none"
           placeholder='CEP'></ReactInputMask>
           <br />
-          <input id="rua" type="text" value={formValues.rua} onChange={(e) => {}} className="form-control block w-full px-3
+          <input id="rua" type="text" value={formValues.rua} onChange={(e) => {formValues.rua = e.target.value}} className="form-control block w-full px-3
                     py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
                     rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
                     focus:border-blue-600 focus:outline-none"
                     placeholder='Rua'></input>
                     <br />
-          <input id="cidade" type="text" value={formValues.cidade} readOnly className="form-control block w-full px-3
+          <input id="cidade" type="text" value={formValues.cidade} onChange={(e) => {formValues.cidade = e.target.value}} className="form-control block w-full px-3
                     py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
                     rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
                     focus:border-blue-600 focus:outline-none"
                     placeholder='Cidade'></input>
                     <br />
-          <input id="estado" type="text" value={formValues.estado} readOnly className="form-control block w-full px-3
+          <input id="estado" type="text" value={formValues.estado} onChange={(e) => {formValues.estado = e.target.value}} className="form-control block w-full px-3
                     py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
                     rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
                     focus:border-blue-600 focus:outline-none"
@@ -84,14 +85,14 @@ export default function Endereco({onSubmit, onEntregaSubmit} : IEndereco){
                     rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
                     focus:border-blue-600 focus:outline-none"></input>
           <br />
-          <button type='submit' className="px-6 py-2.5 bg-blue-600 text-white font-medium
-                text-xs leading-tight uppercase rounded shadow-md  hover:bg-blue-700 hover:shadow-lg 
-                focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-                active:bg-blue-800 active:shadow-lg  transition duration-150
-                ease-in-out">Verificar Compra</button>
         </form>
-        {formValues.isPreenchido ? <Entrega onEntregaSubmit={onEntregaSubmit}/> : <></>}
+
+        {formValues.isPreenchido ? <>
+          <Entrega onEntregaSubmit={onEntregaSubmit}/>
+            <br/>
+            <ButtonSubmit>Próximo</ButtonSubmit>
+          </> :  <ButtonSubmit>Pesquisar</ButtonSubmit>
+           }
     </div>
   );
-  //todo: fix the onChange event
 };
