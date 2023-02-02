@@ -1,16 +1,7 @@
-import {
-  Formik,
-  FormikHelpers,
-  FormikProps,
-  Form,
-  Field,
-  FieldProps,
-} from 'formik';
 import { useState } from 'react';
 import cep, { CEP } from 'cep-promise'
 import ReactInputMask from 'react-input-mask';
 import Entrega from '../Entrega/Entrega';
-
 
 interface MyFormValues {
   CEP: string;
@@ -22,10 +13,11 @@ interface MyFormValues {
 
 const initialValues: MyFormValues = { isPreenchido: false, CEP: '', rua:'' };
 export interface IEndereco{
-    onSubmit(e : string) : void;
+    onSubmit(e : string) :void;
+    onEntregaSubmit(e:string) :void;
 }
 
-export default function Endereco({onSubmit} : IEndereco){
+export default function Endereco({onSubmit, onEntregaSubmit} : IEndereco){
   const [formValues, setFormValues] = useState(initialValues)
   return (
     <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
@@ -96,9 +88,9 @@ export default function Endereco({onSubmit} : IEndereco){
                 text-xs leading-tight uppercase rounded shadow-md  hover:bg-blue-700 hover:shadow-lg 
                 focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
                 active:bg-blue-800 active:shadow-lg  transition duration-150
-                ease-in-out">Pesquisar</button>
+                ease-in-out">Verificar Compra</button>
         </form>
-        {formValues.isPreenchido ? <Entrega/> : <></>}
+        {formValues.isPreenchido ? <Entrega onEntregaSubmit={onEntregaSubmit}/> : <></>}
     </div>
   );
   //todo: fix the onChange event

@@ -15,6 +15,7 @@ const checkoutFormData = {
     endereco : '',
     entrega : '',
     pagamento : '',
+    frete : '',
 }
 
 export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
@@ -22,10 +23,21 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
 
     const [checkoutData, setCheckoutData] = useState(checkoutFormData);
 
-    const [email, setEmail] = useState('')
-    const [endereco, setEndereco] = useState('')
-    const [entrega, setEntrega] = useState('')
-    const [pagamento, setPagamento] = useState('')
+    const pagamentoHandler = (_pagamento: string) => {
+        setCheckoutData((prevState) => {
+            return{...prevState, pagamento : _pagamento}
+            }
+        )
+        onChangeEtapa(EtapasLista.Verificaçao);          
+    }
+
+    const freteHandler = (_frete: string) => {
+        console.log(_frete)
+        setCheckoutData((prevState) => {
+            return{...prevState, frete : _frete}
+            }
+        )    
+    }
 
     const loginHandler = (_email: string) => {
         setCheckoutData((prevState) => {
@@ -40,7 +52,6 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
             return{...prevState, endereco : _endereco}
             }
         )
-        
         onChangeEtapa(EtapasLista.Verificaçao);
     }
 
@@ -49,13 +60,13 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
             current_form = <Login onSubmit={loginHandler}/>
             break;
         case EtapasLista.Endereço:
-            current_form = <Endereco onSubmit={enderecoHandler}/>
+            current_form = <Endereco onSubmit={enderecoHandler} onEntregaSubmit={freteHandler}/>
             break;
          
         case EtapasLista.Pagamento:
             break;
         case EtapasLista.Verificaçao:
-            current_form = <h1>{checkoutData.endereco}</h1>
+            current_form = <Verificar data={checkoutData}/>
             //<Verificar/>
             break;
         default:
