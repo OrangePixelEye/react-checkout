@@ -22,7 +22,6 @@ const Etapas = ({status} : EtapaProp ) => {
             <ol className="items-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
                 <Stepper current_status={status} status={EtapasLista.Login} style={style_status} title="Login"></Stepper>
                 <Stepper current_status={status} status={EtapasLista.Endereço} style={style_status} title="Endereço e entrega"></Stepper>
-                <Stepper current_status={status} status={EtapasLista.Pagamento} style={style_status} title="Forma de pagamento"></Stepper>
                 <Stepper current_status={status} status={EtapasLista.Verificaçao} style={style_status} title="Verificar"></Stepper>               
             </ol>
         </div>

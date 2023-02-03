@@ -13,12 +13,13 @@ export default function Login({onSubmit} : ILogin) {
                             password: { value: string };
                           };
                         const email = target.email.value;
+                        console.log(email)
                         onSubmit(email)
                     }
                     }>
                 <div className="form-group mb-6">
                 <label htmlFor="exampleInputEmail1" className="form-label inline-block mb-2 text-gray-700">Endereço de E-mail</label>
-                <input name="email" type="email" className="form-control
+                <input id="email" name="email" type="email" className="form-control
                     block
                     w-full
                     px-3
@@ -37,7 +38,7 @@ export default function Login({onSubmit} : ILogin) {
                 </div>
                 <div className="form-group mb-6">
                 <label htmlFor="exampleInputPassword1" className="form-label inline-block mb-2 text-gray-700">Senha</label>
-                <input type="password" id="password" className="form-control block
+                <input required type="password" id="password" className="form-control block
                     w-full
                     px-3
                     py-1.5
