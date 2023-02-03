@@ -8,8 +8,8 @@ import Checkout, { PropCheckout } from './Components/Checkout/Checkout'
 export enum EtapasLista{
   Login,
   Endereço,
-  Verificaçao,
   Pagamento,
+  Verificaçao,
 }
 
 function App() {

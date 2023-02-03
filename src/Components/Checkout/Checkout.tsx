@@ -60,7 +60,7 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
             current_form = <Login onSubmit={loginHandler}/>
             break;
         case EtapasLista.Endereço:
-            current_form = <Endereco onSubmit={enderecoHandler} onEntregaSubmit={freteHandler}/>
+            current_form = <Endereco onSubmit={enderecoHandler} onEntregaSubmit={freteHandler} onComplete={() => onChangeEtapa(EtapasLista.Verificaçao)}/>
             break;
          
         case EtapasLista.Pagamento:

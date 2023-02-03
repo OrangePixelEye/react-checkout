@@ -16,10 +16,12 @@ const initialValues: MyFormValues = { isPreenchido: false, CEP: '', rua:'' };
 export interface IEndereco{
     onSubmit(e : string) :void;
     onEntregaSubmit(e:string) :void;
+    onComplete ?: any
 }
 
-export default function Endereco({onSubmit, onEntregaSubmit} : IEndereco){
+export default function Endereco({onSubmit, onEntregaSubmit, onComplete} : IEndereco){
   const [formValues, setFormValues] = useState(initialValues)
+
   return (
     <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
       <h3>Endereço</h3>
@@ -78,7 +80,7 @@ export default function Endereco({onSubmit, onEntregaSubmit} : IEndereco){
                     py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
                     rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
                     focus:border-blue-600 focus:outline-none"
-                    placeholder='Estao'></input>
+                    placeholder='Estado'></input>
                     <br />
           <input id="obs" type="text" placeholder='Observações' className="form-control block w-full px-3
                     py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
@@ -90,7 +92,7 @@ export default function Endereco({onSubmit, onEntregaSubmit} : IEndereco){
         {formValues.isPreenchido ? <>
           <Entrega onEntregaSubmit={onEntregaSubmit}/>
             <br/>
-            <ButtonSubmit>Próximo</ButtonSubmit>
+            <ButtonSubmit onClick={() => onComplete()}>Próximo</ButtonSubmit>
           </> :  <ButtonSubmit>Pesquisar</ButtonSubmit>
            }
     </div>
