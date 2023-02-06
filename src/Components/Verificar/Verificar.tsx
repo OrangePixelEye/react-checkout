@@ -20,7 +20,7 @@ export function Verificar({data} : any){
                 <td scope="row" className="px-3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">R$ 250,00</td>
                 <td className="px-3 py-4">{data.frete}</td>
                 <td className="px-3 py-4">{current_date.getUTCDate() + " / " + (current_date.getUTCMonth() + 1)+ " / " + (current_date.getUTCFullYear())}</td>
-                <td className="px-3 py-4">{data.toString()}</td>
+                <td className="px-3 py-4">{data.endereco.obs ?? 'Nenhuma' }</td>
               
               </tr>
             </tbody>

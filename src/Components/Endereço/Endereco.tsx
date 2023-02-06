@@ -111,7 +111,6 @@ export default function Endereco({onSubmit, onEntregaSubmit, onComplete} : IEnde
             <br/>
             <ButtonSubmit onClick={() =>{
               onSubmit(formValues)
-              onComplete()
             } }>Próximo</ButtonSubmit>
           </> :  <ButtonSubmit>Próximo</ButtonSubmit>
            }

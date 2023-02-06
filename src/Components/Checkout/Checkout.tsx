@@ -5,6 +5,7 @@ import Endereco from '../Endereço/Endereco';
 import './Checkout.css'
 import { Verificar } from '../Verificar/Verificar';
 import Pagamento from '../Pagamento/Pagamento';
+import Produtos from '../Produtos/Produtos';
 
 export interface PropCheckout{
     onChangeEtapa(ordem : EtapasLista) : void;
@@ -24,6 +25,7 @@ const checkoutFormData = {
     frete : 'Kangu',
 }
 
+
 export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
     let current_form = <h2>Formulario</h2>
 
@@ -33,6 +35,10 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
         if (isFirstRender.current) {
             isFirstRender.current = false;
             return; // 👈️ return early if initial render
+        }
+
+        if(checkoutData.endereco !== ''){
+            onChangeEtapa(EtapasLista.Verificaçao);          
         }
     }, [checkoutData]); 
     
@@ -53,8 +59,6 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
             return{...prevState, endereco : _endereco}
             }
         )
-        console.log(_endereco)
-
     }
 
     switch (current_etapa) {
@@ -71,6 +75,14 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
             break;
     }
     return(
-        <div>{current_form}</div>
+        <div className='flex justify-around'>
+               <div>
+                 {current_form}
+                </div>
+                <div>
+
+                <Produtos/>
+            </div>  
+        </div>
     )
 }

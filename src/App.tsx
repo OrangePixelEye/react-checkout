@@ -25,10 +25,14 @@ function App() {
   //  }
   //<h1>{e}</h1>
   return (
-    <div className="App">
-      <Etapas status={etapa}/>
-      
-      <Checkout onChangeEtapa={etapaHandler} current_etapa={etapa}/>
+    <div className="App grid">
+      <div className='grid content-center h-32 place-content-center'>
+        <Etapas status={etapa}/>
+      </div>
+      <div className='grid border border-sky-500'>
+
+        <Checkout onChangeEtapa={etapaHandler} current_etapa={etapa}/>
+      </div>
     </div>
   )
 }
