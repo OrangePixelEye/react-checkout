@@ -33,24 +33,19 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
             isFirstRender.current = false;
             return; // 👈️ return early if initial render
         }
-       // onChangeEtapa(EtapasLista.Endereço);          
         console.log(checkoutData)
-      }, [checkoutData]); 
-
+    }, [checkoutData]); 
+    
     const freteHandler = (_frete: string) => {
         setCheckoutData((prevState) => {
             return{...prevState, frete : _frete}
-            }
+        }
         )    
-        //console.log(checkoutData);
-        
     }
-
-    const loginHandler = (_email: string) => {
-        
+    
+    const loginHandler = (_email: string) => { 
         setCheckoutData({...checkoutData, email : _email})
-        
-        //console.log(checkoutData);
+        onChangeEtapa(EtapasLista.Endereço);          
     }
 
     const enderecoHandler = (_endereco : EnderecoData) => {
@@ -58,9 +53,6 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
             return{...prevState, endereco : _endereco}
             }
         )
-        //console.log(checkoutData);
-        
-        onChangeEtapa(EtapasLista.Verificaçao);
     }
 
     switch (current_etapa) {
