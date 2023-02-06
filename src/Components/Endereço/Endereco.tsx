@@ -16,7 +16,7 @@ interface MyFormValues {
 
 const initialValues: MyFormValues = { isPreenchido: false, CEP: '' };
 export interface IEndereco{
-    onSubmit(e : EnderecoData) :void;
+    onSubmit(e : any) :void;
     onEntregaSubmit(e:string) :void;
     onComplete ?: any
 }
@@ -109,7 +109,10 @@ export default function Endereco({onSubmit, onEntregaSubmit, onComplete} : IEnde
         {formValues.isPreenchido ? <>
           <Entrega onEntregaSubmit={onEntregaSubmit}/>
             <br/>
-            <ButtonSubmit onClick={() => onComplete()}>Próximo</ButtonSubmit>
+            <ButtonSubmit onClick={() =>{
+              onSubmit(formValues)
+              onComplete()
+            } }>Próximo</ButtonSubmit>
           </> :  <ButtonSubmit>Próximo</ButtonSubmit>
            }
     </div>

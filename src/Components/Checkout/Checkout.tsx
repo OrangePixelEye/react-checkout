@@ -18,6 +18,7 @@ export type EnderecoData = { cep: string; rua: string | undefined;
 
 const checkoutFormData = {
     email : '',
+    endereco : '',
     entrega : '',
     pagamento : '',
     frete : 'Kangu',
@@ -33,7 +34,6 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
             isFirstRender.current = false;
             return; // 👈️ return early if initial render
         }
-        console.log(checkoutData)
     }, [checkoutData]); 
     
     const freteHandler = (_frete: string) => {
@@ -48,11 +48,13 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
         onChangeEtapa(EtapasLista.Endereço);          
     }
 
-    const enderecoHandler = (_endereco : EnderecoData) => {
+    const enderecoHandler = (_endereco : any) => {
         setCheckoutData((prevState) => {
             return{...prevState, endereco : _endereco}
             }
         )
+        console.log(_endereco)
+
     }
 
     switch (current_etapa) {
