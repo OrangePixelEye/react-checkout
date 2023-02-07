@@ -30,7 +30,6 @@ function App() {
         <Etapas status={etapa}/>
       </div>
       <div className='grid border border-sky-500'>
-
         <Checkout onChangeEtapa={etapaHandler} current_etapa={etapa}/>
       </div>
     </div>
