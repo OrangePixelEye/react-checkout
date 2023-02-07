@@ -25,7 +25,7 @@ export default function Endereco({onSubmit, onEntregaSubmit, onComplete} : IEnde
   const [formValues, setFormValues] = useState(initialValues)
 
   return (
-    <div className="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+    <div className="block p-6 rounded-lg shadow-lg m-4 bg-white max-w-sm">
       <h3>Endereço</h3>
       <br />
       <form  onSubmit={

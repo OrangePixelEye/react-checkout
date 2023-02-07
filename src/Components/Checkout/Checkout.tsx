@@ -75,12 +75,11 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
             break;
     }
     return(
-        <div className='flex justify-around'>
-               <div>
-                 {current_form}
-                </div>
-                <div>
-
+        <div className='flex justify-center gap-x-2 place-items-center'>
+            <div className='flex-1'>
+                {current_form}
+            </div>
+            <div className='flex-1'>
                 <Produtos/>
             </div>  
         </div>

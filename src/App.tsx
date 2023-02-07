@@ -25,14 +25,18 @@ function App() {
   //  }
   //<h1>{e}</h1>
   return (
-    <div className="App grid">
-      <div className='grid content-center h-32 place-content-center'>
-        <Etapas status={etapa}/>
+      <div className=' flex flex-auto place-content-center py-20'>
+        <div className="App grid block rounded-lg shadow-lg bg-white max-w-max">
+          <div className='grid content-center h-10 place-content-center'>
+            <Etapas status={etapa}/>
+          </div>
+          {/* <div className='flex border border-sky-500'> */}
+          <div>
+            <Checkout onChangeEtapa={etapaHandler} current_etapa={etapa}/>
+          </div>
+        </div>
       </div>
-      <div className='grid border border-sky-500'>
-        <Checkout onChangeEtapa={etapaHandler} current_etapa={etapa}/>
-      </div>
-    </div>
+    
   )
 }
 
