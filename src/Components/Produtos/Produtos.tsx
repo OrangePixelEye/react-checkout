@@ -2,7 +2,7 @@ export default function Produtos(){
     return(
         <div>
             <div className="block m-4 px-6 pt-6 rounded-lg shadow-lg bg-white">
-                <img className="grid place-content-center m-2 rounded-md border" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
+                <img className="grid place-content-center m-2 rounded-md border max-w-sm" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
                 <div className="flex w-full flex-col px-4 py-4">
                     <span className="font-semibold">Nike Air Max Pro 8888</span>
                     <span className="float-right text-gray-400">44BR</span>

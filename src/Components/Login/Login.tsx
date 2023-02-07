@@ -5,7 +5,7 @@ export interface ILogin{
 export default function Login({onSubmit} : ILogin) {
     return(
         <div className="block p-6 rounded-lg shadow-lg m-4 bg-white max-w-sm">
-            <form  onSubmit={
+            <form onSubmit={
                     (e: React.SyntheticEvent) => {
                         e.preventDefault();
                         const target = e.target as typeof e.target & {

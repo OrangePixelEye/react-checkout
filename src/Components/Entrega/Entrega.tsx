@@ -5,11 +5,11 @@ export default function Entrega({onEntregaSubmit} : any){
     const current_date = new Date()
     return(
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <table className="w-100 text-sm text-left text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" className="px-3 py-1 rounded-l-lg">Selecione</th>
-                    <th scope="col" className="px-3 py-">Empresa</th>
+                    <th scope="col" className="px-3 py-1">Empresa</th>
                     <th scope="col" className="px-3 py-1">Data prevista</th>
                     <th scope="col" className="px-3 py-1 rounded-l-lg">Valor</th>
                 </tr>

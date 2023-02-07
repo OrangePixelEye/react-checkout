@@ -26,7 +26,7 @@ function App() {
   //<h1>{e}</h1>
   return (
       <div className=' flex flex-auto place-content-center py-20'>
-        <div className="App grid block rounded-lg shadow-lg bg-white max-w-max">
+        <div className="App">
           <div className='grid content-center h-10 place-content-center'>
             <Etapas status={etapa}/>
           </div>
