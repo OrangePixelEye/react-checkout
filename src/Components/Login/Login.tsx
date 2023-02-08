@@ -1,8 +1,31 @@
+import { gql, useMutation } from "@apollo/client"
+import axios from 'axios';
+
+
 export interface ILogin{
     onSubmit(e : string) : void;
 }
 
+const LOGIN_MUTATION = gql`
+    mutation tryLogin($email: String, $password: String){
+        generateCustomerToken(email : $email, password : $password){
+            token
+        }
+    }
+`;
+
+
 export default function Login({onSubmit} : ILogin) {
+
+    const [tryLogin, { data, loading, error }] = useMutation(LOGIN_MUTATION, {
+        onCompleted: (dat) => {
+            console.log(dat)
+            console.log(data)
+        }
+    });
+
+    
+
     return(
             <form className="max-w-sm" onSubmit={
                     (e: React.SyntheticEvent) => {
@@ -12,7 +35,8 @@ export default function Login({onSubmit} : ILogin) {
                             password: { value: string };
                           };
                         const email = target.email.value;
-                        console.log(email)
+                        const pass = target.password.value;
+                        tryLogin({variables : {email: email, password : pass}}).then( )
                         onSubmit(email)
                     }
                     }>
