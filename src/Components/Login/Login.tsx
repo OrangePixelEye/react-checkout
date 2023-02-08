@@ -6,25 +6,38 @@ export interface ILogin{
     onSubmit(e : string) : void;
 }
 
-const LOGIN_MUTATION = gql`
-    mutation tryLogin($email: String, $password: String){
-        generateCustomerToken(email : $email, password : $password){
-            token
-        }
-    }
-`;
+
 
 
 export default function Login({onSubmit} : ILogin) {
-
-    const [tryLogin, { data, loading, error }] = useMutation(LOGIN_MUTATION, {
-        onCompleted: (dat) => {
-            console.log(dat)
-            console.log(data)
-        }
-    });
-
+    const sendRequest = () => {
+      var data = JSON.stringify({
+        query: `mutation{
+          generateCustomerToken(email : "", password : ""){
+              token
+          }
+         }`,
+        variables: {}
+      });
     
+        var config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: 'https://loja.meece.com.br/graphql',
+            headers: { 
+              'Content-Type': 'application/json', 
+              'Accept': 'application/json', 
+            },
+            data : data
+          };
+        axios(config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
 
     return(
             <form className="max-w-sm" onSubmit={
@@ -36,7 +49,7 @@ export default function Login({onSubmit} : ILogin) {
                           };
                         const email = target.email.value;
                         const pass = target.password.value;
-                        tryLogin({variables : {email: email, password : pass}}).then( )
+                        sendRequest()
                         onSubmit(email)
                     }
                     }>
