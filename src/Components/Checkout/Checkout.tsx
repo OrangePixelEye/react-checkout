@@ -23,6 +23,7 @@ const checkoutFormData = {
     entrega : '',
     pagamento : '',
     frete : 'Kangu',
+    produtos_preco : 0.0
 }
 
 
@@ -61,6 +62,12 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
         )
     }
 
+    const precoHandler = ( _preco : number) => {
+        setCheckoutData((prev) => {
+            return{...prev, produtos_preco : _preco}
+        })
+    }
+
     switch (current_etapa) {
         case EtapasLista.Login:
             current_form = <Login onSubmit={loginHandler}/>
@@ -80,7 +87,8 @@ export default function Checkout({onChangeEtapa, current_etapa} : PropCheckout){
                 {current_form}
             </div>
             <div className='block p-6 rounded-lg shadow-lg m-4 bg-white flex-1'>
-                <Produtos/>
+                <Produtos onPrecoUpdate={precoHandler} current_etapa={current_etapa}/>
+                
             </div>  
         </div>
     )

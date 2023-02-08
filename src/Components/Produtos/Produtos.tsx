@@ -1,9 +1,23 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { EtapasLista } from "../../App"
 
-export default function Produtos(){
+export default function Produtos({onPrecoUpdate, current_etapa} : {onPrecoUpdate : ((price : number) => void), current_etapa : EtapasLista}){
     const base_price : number = 238.99
-    //const [price, setPrice] = useState(base_price)
     const [qtd, setQtd] = useState(1)
+
+    let temp_price = base_price * qtd
+
+    const verifyPrice = (_price: number) => {
+        return  (Number.isNaN(_price) ? 0 : _price)
+    }
+    let new_price =  verifyPrice(temp_price)
+
+    const updatePrice = (n_qtd : number) => {
+        temp_price = base_price * n_qtd
+        new_price =  verifyPrice(temp_price)
+        return new_price
+    }
+
 
     const productPriceHandler = (new_qtd : string) => {
         // try parse num
@@ -11,11 +25,12 @@ export default function Produtos(){
         if (typeof(qtd_number) == 'undefined') return;
         // update price
         setQtd(qtd_number)
+
         // send data
+        onPrecoUpdate(updatePrice(qtd_number))
+        console.log(updatePrice(qtd_number))
     }
 
-    const temp_price = base_price * qtd
-    const new_price = (Number.isNaN(temp_price) ? 0 : temp_price) 
 
     return(
         <div className="max-w-xs">
@@ -28,7 +43,7 @@ export default function Produtos(){
                     <input className="form-control block min px-3
                     py-1.5 text-base font-normal text-gray-700 w- bg-white bg-clip-padding border border-solid border-gray-300
                     rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
-                    focus:border-blue-600 focus:outline-none" type="number" placeholder="qtd" value={qtd.toFixed()} onChange={(e) => productPriceHandler(e.target.value)}></input>
+                    focus:border-blue-600 focus:outline-none" type="number" disabled={current_etapa === EtapasLista.Verificaçao} placeholder="qtd" value={qtd.toFixed()} onChange={(e) => productPriceHandler(e.target.value)}></input>
                     
                 </div>
             </div>
