@@ -4,8 +4,7 @@ export interface ILogin{
 
 export default function Login({onSubmit} : ILogin) {
     return(
-        <div className="block p-6 rounded-lg shadow-lg m-4 bg-white max-w-sm">
-            <form  onSubmit={
+            <form className="max-w-sm" onSubmit={
                     (e: React.SyntheticEvent) => {
                         e.preventDefault();
                         const target = e.target as typeof e.target & {
@@ -19,39 +18,18 @@ export default function Login({onSubmit} : ILogin) {
                     }>
                 <div className="form-group mb-6">
                 <label htmlFor="exampleInputEmail1" className="form-label inline-block mb-2 text-gray-700">Endereço de E-mail</label>
-                <input id="email" name="email" type="email" className="form-control
-                    block
-                    w-full
-                    px-3
-                    py-1.5
-                    text-base
-                    font-normal
-                    text-gray-700
-                    bg-white bg-clip-padding
-                    border border-solid border-gray-300
-                    rounded
-                    transition
-                    ease-in-out
-                    m-0
-                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                <input id="email" name="email" type="email" className="form-control block w-full px-3
+                py-1 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
+                focus:border-blue-600 focus:outline-none"
                 aria-describedby="emailHelp" placeholder="E-mail"/>
                 </div>
                 <div className="form-group mb-6">
                 <label htmlFor="exampleInputPassword1" className="form-label inline-block mb-2 text-gray-700">Senha</label>
-                <input required type="password" id="password" className="form-control block
-                    w-full
-                    px-3
-                    py-1.5
-                    text-base
-                    font-normal
-                    text-gray-700
-                    bg-white bg-clip-padding
-                    border border-solid border-gray-300
-                    rounded
-                    transition
-                    ease-in-out
-                    m-0
-                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" 
+                <input required type="password" id="password" className="form-control block w-full px-3
+                py-1 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
+                focus:border-blue-600 focus:outline-none" 
                     placeholder="Senha"/>
                 </div>
                 <div className="form-group form-check mb-6">
@@ -66,6 +44,5 @@ export default function Login({onSubmit} : ILogin) {
                 active:bg-blue-800 active:shadow-lg  transition duration-150
                 ease-in-out">Entrar</button>
             </form>
-        </div>
     )
 }

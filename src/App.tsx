@@ -25,9 +25,10 @@ function App() {
   //  }
   //<h1>{e}</h1>
   return (
+    <div className='bg-gray-100'>
       <div className=' flex flex-auto place-content-center py-20'>
-        <div className="App grid block rounded-lg shadow-lg bg-white max-w-max">
-          <div className='grid content-center h-10 place-content-center'>
+        <div className="App grid block rounded-lg shadow-lg bg-white max-w-full">
+          <div className='grid content-center h-10 place-content-center pt-3'>
             <Etapas status={etapa}/>
           </div>
           {/* <div className='flex border border-sky-500'> */}
@@ -36,6 +37,8 @@ function App() {
           </div>
         </div>
       </div>
+    </div>
+      
     
   )
 }

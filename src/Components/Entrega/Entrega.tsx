@@ -4,8 +4,7 @@ export default function Entrega({onEntregaSubmit} : any){
     // todo: receber checked padrão
     const current_date = new Date()
     return(
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <table className=" max-w-sm block rounded-lg shadow-lg bg-white">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" className="px-3 py-1 rounded-l-lg">Selecione</th>
@@ -28,7 +27,6 @@ export default function Entrega({onEntregaSubmit} : any){
                     <td className="px-3 py-4">R$ 30,50</td>
                 </tr>
             </tbody>
-        </table>  
-    </div> 
+        </table>
     )
 }
