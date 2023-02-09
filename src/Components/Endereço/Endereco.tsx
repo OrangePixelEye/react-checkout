@@ -70,25 +70,25 @@ export default function Endereco({onSubmit, onEntregaSubmit, onComplete} : IEnde
               })
             }
           } }className="form-control block w-full px-3
-          py-1 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+          py-1 text-base font-normal dark:text-gray-200 dark:bg-gray-800 dark:focus:bg-gray-800 dark:focus:text-gray-200 text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
           rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
           focus:border-blue-600 focus:outline-none"
           placeholder='CEP'></ReactInputMask>
           <br />
           <input id="rua" type="text" value={formValues.rua} onChange={(e) => {formValues.rua = e.target.value}} className="form-control block w-full px-3
-                    py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                    py-1.5 text-base font-normal dark:text-gray-200 dark:bg-gray-800 dark:focus:bg-gray-800 dark:focus:text-gray-200 text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
                     rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
                     focus:border-blue-600 focus:outline-none"
                     placeholder='Rua'></input>
                     <br />
           <input id="cidade" type="text" value={formValues.cidade} onChange={(e) => {formValues.cidade = e.target.value}} className="form-control block w-full px-3
-                    py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                    py-1.5 text-base font-normal dark:text-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-200 dark:bg-gray-800 dark:focus:bg-gray-800 dark:focus:text-gray-200 bg-white bg-clip-padding border border-solid border-gray-300
                     rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
                     focus:border-blue-600 focus:outline-none"
                     placeholder='Cidade'></input>
                     <br />
           <input id="estado" type="text" value={formValues.estado} onChange={(e) => {formValues.estado = e.target.value}} className="form-control block w-full px-3
-                    py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                    py-1.5 text-base font-normal dark:text-gray-200 dark:bg-gray-800 dark:focus:bg-gray-800 dark:focus:text-gray-200 text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
                     rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
                     focus:border-blue-600 focus:outline-none"
                     placeholder='Estado'></input>
@@ -100,7 +100,7 @@ export default function Endereco({onSubmit, onEntregaSubmit, onComplete} : IEnde
             }
           }
             )}} placeholder='Observações' className="form-control block w-full px-3
-                    py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                    py-1.5 text-base font-normal dark:text-gray-200 dark:bg-gray-800 dark:focus:bg-gray-800 dark:focus:text-gray-200 text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
                     rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
                     focus:border-blue-600 focus:outline-none"></input>
           <br />

@@ -42,7 +42,7 @@ export default function Produtos({onPrecoUpdate, current_etapa} : {onPrecoUpdate
                 <div>
                     <input className="form-control block min px-3
                     py-1.5 text-base font-normal text-gray-700 w- bg-white bg-clip-padding border border-solid border-gray-300
-                    rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
+                    dark:text-gray-200 dark:bg-gray-800 dark:focus:bg-gray-800 dark:focus:text-gray-200 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white 
                     focus:border-blue-600 focus:outline-none" type="number" disabled={current_etapa === EtapasLista.Verificaçao} placeholder="qtd" value={qtd.toFixed()} onChange={(e) => productPriceHandler(e.target.value)}></input>
                     
                 </div>

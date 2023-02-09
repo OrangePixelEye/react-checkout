@@ -10,8 +10,8 @@ export function Verificar({data} : any){
     return(
         <>
         <div className="grid grid-cols-6 gap-4 max-w-sm">
-          <div className="col-start-1 col-end-3">
-            <h3 className="mt-auto text-lg font-bold">Método de entrega</h3>
+          <div className="col-start-1 col-end-4">
+            <h3 className="mt-auto text-lg font-bold dark:text-white">Método de entrega</h3>
           </div>
           <div className="col-end-7 col-span-2">
             <p className="float-right text-gray-400">{data.frete}</p>
