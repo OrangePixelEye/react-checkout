@@ -7,13 +7,11 @@ export interface ILogin{
 }
 
 
-
-
 export default function Login({onSubmit} : ILogin) {
-    const sendRequest = () => {
+    const sendRequest = (email: string, pass: string) => {
       var data = JSON.stringify({
         query: `mutation{
-          generateCustomerToken(email : "", password : ""){
+          generateCustomerToken(email : "${email}", password : "${pass}"){
               token
           }
          }`,
@@ -23,7 +21,7 @@ export default function Login({onSubmit} : ILogin) {
         var config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://loja.meece.com.br/graphql',
+            url: 'http://loja.meece.com.br/graphql',
             headers: { 
               'Content-Type': 'application/json', 
               'Accept': 'application/json', 
@@ -49,7 +47,7 @@ export default function Login({onSubmit} : ILogin) {
                           };
                         const email = target.email.value;
                         const pass = target.password.value;
-                        sendRequest()
+                        sendRequest(email,pass)
                         onSubmit(email)
                     }
                     }>
