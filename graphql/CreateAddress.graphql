@@ -16,14 +16,14 @@ mutation CreateAddress(
       region_code: $region_code
     }
     country_code: BR
-    street: ["123 Main Street"]
-    telephone: "7777777777"
-    postcode: "77777"
-    city: "Phoenix"
-    firstname: "Bob"
-    lastname: "Loblaw"
-    default_shipping: true
-    default_billing: false
+    street: $street
+    telephone: $telephone
+    postcode: $postcode
+    city: $city
+    firstname: $firstname
+    lastname: $lastname
+    default_shipping: $default_shipping
+    default_billing: $default_billing
   }) {
     id
     region {
