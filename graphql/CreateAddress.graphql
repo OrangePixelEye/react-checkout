@@ -1,7 +1,7 @@
 mutation CreateAddress(
   $region: String!,
   $region_code: String!,
-  $street: [String!],
+  $street: [String!]!,
   $city: String!,
   $firstname: String!,
   $lastname: String!,

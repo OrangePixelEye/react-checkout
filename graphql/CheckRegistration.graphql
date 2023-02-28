@@ -1,4 +1,4 @@
-query CheckRegistration($email: String){
+query CheckRegistration($email: String!){
     isEmailAvailable(email: $email) {
         is_email_available
     }

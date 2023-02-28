@@ -1,10 +1,10 @@
 mutation CreateCustomer(
-    $firstname: String,
-    $lastname: String,
-    $email: String,
-    $password: String,
-    $date_of_birth: String,
-    $gender: Int
+    $firstname: String!,
+    $lastname: String!,
+    $email: String!,
+    $password: String!,
+    $date_of_birth: String!,
+    $gender: Int!
 ) {
   createCustomer(
     input: {
