@@ -1,0 +1,41 @@
+mutation CreateAddress(
+  $region: String!,
+  $region_code: String!,
+  $street: [String!],
+  $city: String!,
+  $firstname: String!,
+  $lastname: String!,
+  $postcode: String!,
+  $telephone: String,
+  $default_shipping: Boolean = true,
+  $default_billing: Boolean = false
+){
+  createCustomerAddress(input: {
+    region: {
+      region: $region
+      region_code: $region_code
+    }
+    country_code: BR
+    street: ["123 Main Street"]
+    telephone: "7777777777"
+    postcode: "77777"
+    city: "Phoenix"
+    firstname: "Bob"
+    lastname: "Loblaw"
+    default_shipping: true
+    default_billing: false
+  }) {
+    id
+    region {
+      region
+      region_code
+    }
+    country_code
+    street
+    telephone
+    postcode
+    city
+    default_shipping
+    default_billing
+  }
+}

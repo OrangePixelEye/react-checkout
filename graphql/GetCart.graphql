@@ -1,0 +1,27 @@
+query GetCart($cart_id: String){
+  cart(cart_id: $cart_id) {
+    email
+    items {
+      id
+      product {
+        name
+        sku
+        image{
+          url
+        }
+      }
+      quantity
+      errors {
+        code
+        message
+      }
+    }
+
+    prices {
+      grand_total {
+        value
+        currency
+      }
+    }
+  }
+}

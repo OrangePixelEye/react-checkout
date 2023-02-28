@@ -1,0 +1,19 @@
+query GetAddress{
+    customer {
+    firstname
+    lastname
+    suffix
+    email
+    addresses {
+      street
+      city
+      region {
+        region_code
+        region
+      }
+      postcode
+      country_code
+      telephone
+    }
+  }
+}

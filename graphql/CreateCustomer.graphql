@@ -1,0 +1,25 @@
+mutation CreateCustomer(
+    $firstname: String,
+    $lastname: String,
+    $email: String,
+    $password: String,
+    $date_of_birth: String,
+    $gender: Int
+) {
+  createCustomer(
+    input: {
+      firstname: $firstname
+      lastname: $lastname
+      email: $email
+      password: $password
+      date_of_birth: $date_of_birth
+      gender : $gender
+    }
+  ) {
+    customer {
+      firstname
+      lastname
+      email
+    }
+  }
+}
